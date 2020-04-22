@@ -17,3 +17,4 @@
 
 
 ## 2-2. Final Term project
+- git diff야 이놈좀 잡아봐
