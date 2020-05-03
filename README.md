@@ -14,7 +14,7 @@
 
 ## 2-1. Social Network Analysis
 ![](https://github.com/hw79chopin/Class_DataMining/blob/master/data/%EA%B7%B8%EB%9E%98%ED%94%84_%ED%97%88%EC%9C%A4%EC%A0%95%EC%9D%98%EC%9B%90%20%EC%A0%9C%EC%99%B8.png?raw=true)
-
+- 얻을 수 있었던 insight들
 
 ## 2-2. Final Term project
 - git diff야 이놈좀 잡아봐
