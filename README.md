@@ -9,7 +9,7 @@
 - Community 시각화를 통해 임기 내 법안발의에 소홀히 하는 국회의원들이 outlier로 나타나는 것을 확인
 - Closeness, Betweenness, Eigenvector centrality 등을 통해서 가장 열심히 일하는 국회의원이 누군지, 국회의원들 중심에서 broker 역할은 누가 하는지 등을 파악할 수 있었음
 
-# 1. Social Network Analysis
+# 1. Social Network Analysis를 활용해 국회의원 관계 분석하기
 
 ## Q. 국회의원들의 관계는 정량적으로 어떻게 설명할 수 있을까?
 - 법안발의 현황데이터를 통해 국회의원들이 어떤 국회의원과 법안을 발의했는지 분석하면 국회의원의 관계를 좀 더 정량적으로 파악할 수 있을 것이라고 생각하였음.
@@ -24,7 +24,7 @@
 - Node: 국회의원 295명을 활용함 (크롤링 당시 2020.2월 당시 20대 국회의원이 295명)
 - Edge: 함께 발의한 법안이 존재하는 경우에 edge를 생성해주었고, 법안 개수에 따라 Weight를 주었음.
 
-## 3) results
+## 3) Results
 - python으로 법안 데이터를 network 분석용 dataframe으로 바꾸고 Gephi로 분석하였다.
 
 ### Degree distribution
