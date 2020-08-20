@@ -1,14 +1,15 @@
-# 21대 국회의원 발의법안 네트워크 분석
-![](https://www.kbmaeil.com/news/photo/201604/380814_786519_5057.jpg)
-- 목표: 발의법안을 분석하여 국회의원들간의 관계를 정량적으로 파악하기
+# `21대 국회의원 발의법안 네트워크 분석`
+`network-analysis` `gephi`
+- 발의법안을 분석하여 국회의원들간의 관계를 정량적으로 파악하기
 - 참가자: 박솔희, 윤형준, 이시은, 정현우
 
 ## 요약
-- python, gephi를 활용해 국회의원 social network analysis를 진행
-- 전반적으로 같은 당 사람들끼리 법안발의를 많이 하고 다른 당 사람들끼리 교류가 적었음
-- Community 시각화를 통해 임기 내 법안발의에 소홀히 하는 국회의원들이 outlier로 나타나는 것을 확인
-- Closeness, Betweenness, Eigenvector centrality 등을 통해서 가장 열심히 일하는 국회의원이 누군지, 국회의원들 중심에서 broker 역할은 누가 하는지 등을 파악할 수 있었음
-
+```
+> python, gephi를 활용해 국회의원 social network analysis를 진행
+> 전반적으로 같은 당 사람들끼리 법안발의를 많이 하고 다른 당 사람들끼리 교류가 적었음
+> Community 시각화를 통해 임기 내 법안발의에 소홀히 하는 국회의원들이 outlier로 나타나는 것을 확인
+> Closeness, Betweenness, Eigenvector centrality 등을 통해서 가장 열심히 일하는 국회의원이 누군지, 국회의원들 중심에서 broker 역할은 누가 하는지 등을 파악할 수 있었음
+```
 # 1. Social Network Analysis를 활용해 국회의원 관계 분석하기
 
 ## Q. 국회의원들의 관계는 정량적으로 어떻게 설명할 수 있을까?
@@ -27,16 +28,16 @@
 ## 3) Results
 - python으로 법안 데이터를 network 분석용 dataframe으로 바꾸고 Gephi로 분석하였다.
 
-### Degree distribution
+### 3-1) Degree distribution
 - Average Degree가 277.65로 나왔다. 
 - Node의 개수가 295인 것을 고려하면 대부분의 의원들이 최소 1번 공동발의한 것을 알 수 있다.
 
-### Density, Diameter
+### 3-2) Density, Diameter
 - Density, Diameter 각각 0.941, 2가 나왔다. 
 - Density가 1에 가깝게 나온 것을 보면 대부분의 의원들이 공동발의를 한 번씩은 진행한 것으로 해석가능하다. 
 - 또한 node들이 대부분 연결되어 있기 때문에 diameter값이 2가 나왔다.
 
-### Network Outliers
+### 3-3) Network Outliers
 - 전체적인 network는 밑의 그림과 같다.
 ![](https://github.com/hw79chopin/National-Assembly-member-recommender/blob/master/data/%EA%B7%B8%EB%9E%98%ED%94%84_%EC%A0%84%EC%B2%B4.png?raw=true)
 
@@ -45,7 +46,7 @@
 ![](https://github.com/hw79chopin/National-Assembly-member-recommender/blob/master/data/Network%20Outliers.png?raw=true)
 - community에서 먼 9명의 국회의원들의 평균법안 살펴본 결과 144개였다. 전체 평균의 1/8 수준이어서 커뮤니티에서 멀어진 것으로 확인된다.
 
-### Network Communities
+### 3-4) Network Communities
 ![](https://github.com/hw79chopin/National-Assembly-member-recommender/blob/master/data/Network%20Community.png?raw=true)
 - 아웃라이어를 제거한 network를 보면 다음과 같이 크게 4가지 community가 있다.
 - 더불어민주당, 미래통합당, 민생당, 정의당이 community를 구성하고 있다.
@@ -100,10 +101,10 @@
 - Closeness centrality가 높은 의원들이 Eigenvector centrality도 높게 나왔다.  
 - 이는 법안 확산에 기여를 많이 하는 의원들이 국회 법안 발의에서 중요한 사람들과도 많이 연결되어 있다고 해석할 수 있다.  
 
-### 한계
+# 2. 한계
 - '열려라 국회' 사이트도 [의안정보시스템](https://likms.assembly.go.kr/bill/main.do)에서 크롤링해오는 것이어서 간혹 크롤링 오류로 깨진 글자들이 발견되기도 하였음. 즉, 모든 법안 데이터를 오롯이 크롤링하기에는 무리가 있었음.
 -  허윤정 의원이 20대 국회에서 발의한 법안은 총 27건인데  '열러라 국회'에는 3건밖에 크롤링되지 않는 등 데이터가 완벽하지 못했음.
 
-# 2. 각 파일들 설명
+# 3. 각 파일들 설명
 > crawler.py
 - '열려라 국회' 사이트 크롤링 코드
