@@ -57,12 +57,12 @@
 - 더불어민주당, 미래통합당, 민생당, 정의당이 community를 구성하고 있다.
 - 4개의 community 중에서는 미래통합당이 다른 community와는 멀리 떨어져 있는 모습을 확인할 수 있다.
 
-<img src="https://github.com/hw79chopin/National-Assembly-member-recommender/blob/master/data/%EC%9D%B4%EC%B0%AC%EC%97%B4%EC%9D%98%EC%9B%90.png?raw=true" alt="alt text" width="50%"/>
+<img src="https://github.com/hw79chopin/National-Assembly-member-recommender/blob/master/data/%EC%9D%B4%EC%B0%AC%EC%97%B4%EC%9D%98%EC%9B%90.png?raw=true" align="center" width="50%"/>
 
 - 이찬열 의원은 미래통합당임에도 불구하고 더불어민주당, 민생당 community에 위치한다.
 - 이찬열 의원은 선거 당시 더불어민주당 소속으로 당선된 뒤, 이후 당적을 2020년에 미래통합당으로 옮겼다. 그렇기에 더불어민주당 community에 가깝다.
 
-<img src="https://github.com/hw79chopin/National-Assembly-member-recommender/blob/master/data/%EA%B7%B8%EB%9E%98%ED%94%84_%EC%9E%90%EC%9C%A0%ED%86%B5%ED%95%A9%EB%8B%B9%20%EC%AA%BD.png?raw=true" alt="alt text" width="50%"/>
+<img src="https://github.com/hw79chopin/National-Assembly-member-recommender/blob/master/data/%EA%B7%B8%EB%9E%98%ED%94%84_%EC%9E%90%EC%9C%A0%ED%86%B5%ED%95%A9%EB%8B%B9%20%EC%AA%BD.png?raw=true" align="center" width="50%"/>
 
 - 미래통합당 community쪽에는 미래통합당, 무소속, 미래한국당 의원들이 섞여있다.
 - 미래한국당이 미래통합당의 위성정당이이기에 같은 community에 속해있는 것을 확인할 수 있다.
