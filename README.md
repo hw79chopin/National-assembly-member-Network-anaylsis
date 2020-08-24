@@ -1,8 +1,10 @@
-# `21대 국회의원 발의법안 네트워크 분석`
-`network-analysis` `gephi`
+<h1 align="center"><strong>🔎 21대 국회의원 발의법안 네트워크 분석</strong></h3>
+
+`#python` `#network-analysis` `#gephi`
+
+# 🚦 1. 소개
 - 발의법안을 분석하여 국회의원들간의 관계를 정량적으로 파악하기
 - 참가자: 박솔희, 윤형준, 이시은, 정현우
-
 ## 요약
 ```
 > python, gephi를 활용해 국회의원 social network analysis를 진행
@@ -10,34 +12,37 @@
 > Community 시각화를 통해 임기 내 법안발의에 소홀히 하는 국회의원들이 outlier로 나타나는 것을 확인
 > Closeness, Betweenness, Eigenvector centrality 등을 통해서 가장 열심히 일하는 국회의원이 누군지, 국회의원들 중심에서 broker 역할은 누가 하는지 등을 파악할 수 있었음
 ```
-# 1. Social Network Analysis를 활용해 국회의원 관계 분석하기
+
+--- 
+
+# 🚦 2. 데이터 확보하기
 
 ## Q. 국회의원들의 관계는 정량적으로 어떻게 설명할 수 있을까?
 - 법안발의 현황데이터를 통해 국회의원들이 어떤 국회의원과 법안을 발의했는지 분석하면 국회의원의 관계를 좀 더 정량적으로 파악할 수 있을 것이라고 생각하였음.
 - 이에 법안 발의 현황 데이터를 크롤링하고 Social Network Analysis를 이용해 국회의원들 간의 관계를 분석하고 함
 
-## 1) 데이터 확보
-![](https://github.com/hw79chopin/National-Assembly-member-recommender/blob/master/data/%EC%97%B4%EB%A0%A4%EB%9D%BC%EA%B5%AD%ED%9A%8C%20%EB%A9%94%EC%9D%B8.png?raw=true)
-![](https://github.com/hw79chopin/National-Assembly-member-recommender/blob/master/data/%EC%82%AC%EC%9D%B4%ED%8A%B8_%EB%B2%95%EC%95%88%20%ED%81%AC%EB%A1%A4%EB%A7%81.png?raw=true)
+<img src="data/열려라국회 메인.png" width="50%" height="50%"> 
+<img src="data/사이트_법안 크롤링.png" width="50%" height="50%"> 
 - 크롤링은 '열려라 국회'에서 공개한 법안내용을 활용하였음.
 
-## 2) Node, Edge 정의
+--- 
+
+# 🚦 3. 네트워크 분석
+### 3-1) Node, Edge 정의
 - Node: 국회의원 295명을 활용함 (크롤링 당시 2020.2월 당시 20대 국회의원이 295명)
 - Edge: 함께 발의한 법안이 존재하는 경우에 edge를 생성해주었고, 법안 개수에 따라 Weight를 주었음.
-
-## 3) Results
 - python으로 법안 데이터를 network 분석용 dataframe으로 바꾸고 Gephi로 분석하였다.
 
-### 3-1) Degree distribution
+### 3-2) Degree distribution
 - Average Degree가 277.65로 나왔다. 
 - Node의 개수가 295인 것을 고려하면 대부분의 의원들이 최소 1번 공동발의한 것을 알 수 있다.
 
-### 3-2) Density, Diameter
+### 3-3) Density, Diameter
 - Density, Diameter 각각 0.941, 2가 나왔다. 
 - Density가 1에 가깝게 나온 것을 보면 대부분의 의원들이 공동발의를 한 번씩은 진행한 것으로 해석가능하다. 
 - 또한 node들이 대부분 연결되어 있기 때문에 diameter값이 2가 나왔다.
 
-### 3-3) Network Outliers
+### 3-4) Network Outliers
 - 전체적인 network는 밑의 그림과 같다.
 ![](https://github.com/hw79chopin/National-Assembly-member-recommender/blob/master/data/%EA%B7%B8%EB%9E%98%ED%94%84_%EC%A0%84%EC%B2%B4.png?raw=true)
 
@@ -46,18 +51,18 @@
 ![](https://github.com/hw79chopin/National-Assembly-member-recommender/blob/master/data/Network%20Outliers.png?raw=true)
 - community에서 먼 9명의 국회의원들의 평균법안 살펴본 결과 144개였다. 전체 평균의 1/8 수준이어서 커뮤니티에서 멀어진 것으로 확인된다.
 
-### 3-4) Network Communities
+### 3-5) Network Communities
 ![](https://github.com/hw79chopin/National-Assembly-member-recommender/blob/master/data/Network%20Community.png?raw=true)
 - 아웃라이어를 제거한 network를 보면 다음과 같이 크게 4가지 community가 있다.
 - 더불어민주당, 미래통합당, 민생당, 정의당이 community를 구성하고 있다.
 - 4개의 community 중에서는 미래통합당이 다른 community와는 멀리 떨어져 있는 모습을 확인할 수 있다.
 
-<img src="https://github.com/hw79chopin/National-Assembly-member-recommender/blob/master/data/%EC%9D%B4%EC%B0%AC%EC%97%B4%EC%9D%98%EC%9B%90.png?raw=true" alt="alt text" width="500"/>
+<img src="https://github.com/hw79chopin/National-Assembly-member-recommender/blob/master/data/%EC%9D%B4%EC%B0%AC%EC%97%B4%EC%9D%98%EC%9B%90.png?raw=true" alt="alt text" width="50%"/>
 
 - 이찬열 의원은 미래통합당임에도 불구하고 더불어민주당, 민생당 community에 위치한다.
 - 이찬열 의원은 선거 당시 더불어민주당 소속으로 당선된 뒤, 이후 당적을 2020년에 미래통합당으로 옮겼다. 그렇기에 더불어민주당 community에 가깝다.
 
-<img src="https://github.com/hw79chopin/National-Assembly-member-recommender/blob/master/data/%EA%B7%B8%EB%9E%98%ED%94%84_%EC%9E%90%EC%9C%A0%ED%86%B5%ED%95%A9%EB%8B%B9%20%EC%AA%BD.png?raw=true" alt="alt text" width="500"/>
+<img src="https://github.com/hw79chopin/National-Assembly-member-recommender/blob/master/data/%EA%B7%B8%EB%9E%98%ED%94%84_%EC%9E%90%EC%9C%A0%ED%86%B5%ED%95%A9%EB%8B%B9%20%EC%AA%BD.png?raw=true" alt="alt text" width="50%"/>
 
 - 미래통합당 community쪽에는 미래통합당, 무소속, 미래한국당 의원들이 섞여있다.
 - 미래한국당이 미래통합당의 위성정당이이기에 같은 community에 속해있는 것을 확인할 수 있다.
@@ -101,10 +106,15 @@
 - Closeness centrality가 높은 의원들이 Eigenvector centrality도 높게 나왔다.  
 - 이는 법안 확산에 기여를 많이 하는 의원들이 국회 법안 발의에서 중요한 사람들과도 많이 연결되어 있다고 해석할 수 있다.  
 
-# 2. 한계
+---
+
+# 🚦 4. 한계
 - '열려라 국회' 사이트도 [의안정보시스템](https://likms.assembly.go.kr/bill/main.do)에서 크롤링해오는 것이어서 간혹 크롤링 오류로 깨진 글자들이 발견되기도 하였음. 즉, 모든 법안 데이터를 오롯이 크롤링하기에는 무리가 있었음.
 -  허윤정 의원이 20대 국회에서 발의한 법안은 총 27건인데  '열러라 국회'에는 3건밖에 크롤링되지 않는 등 데이터가 완벽하지 못했음.
 
-# 3. 각 파일들 설명
-> crawler.py
-- '열려라 국회' 사이트 크롤링 코드
+---
+
+# 🚦 5. 각 파일들 설명
+> [crawler.py](https://github.com/hw79chopin/National-assembly-member-Network-anaylsis/blob/master/crawler.py): '열려라 국회' 사이트 크롤링 코드
+
+<h3 align="center"><strong>끗! 🙌</strong></h3>
